@@ -1,0 +1,1 @@
+export 'common/configuration_response_model.dart';
