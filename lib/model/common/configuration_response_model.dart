@@ -9,4 +9,8 @@ class ConfigurationResponseModel {
     @required this.secureBaseUrl,
 
   });
+
+  factory ConfigurationResponseModel.fromJson(Map<String, dynamic> jsonResponse) {
+    return ConfigurationResponseModel(secureBaseUrl: jsonResponse['secure_base_url']);
+  }
 }

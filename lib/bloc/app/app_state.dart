@@ -4,13 +4,26 @@ import 'package:the_movie_list_flutter/model/index.dart';
 
 abstract class AppState extends Equatable {
   final ConfigurationResponseModel configurationModel;
-  AppState({ @required this.configurationModel });
+  final List<GenreResponseModel> genreListModel;
+  AppState({@required this.configurationModel, @required this.genreListModel});
   @override
-  List<Object> get props => [configurationModel];
+  List<Object> get props => [configurationModel, genreListModel];
 }
 
-class AppInitialState extends AppState {}
+class AppStateInitial extends AppState {}
 
-class AppConfigurationLoaded extends AppState {}
+class AppStateLoading extends AppState {}
 
-class AppConfigurationNotLoaded  extends AppState {}
+class AppStateSuccess extends AppState {
+  AppStateSuccess(
+      {@required ConfigurationResponseModel configurationModel,
+      @required List<GenreResponseModel> genreListModel})
+      : super(
+            configurationModel: configurationModel,
+            genreListModel: genreListModel);
+}
+
+class AppStateError extends AppState {
+  final dynamic exception;
+  AppStateError({@required this.exception});
+}

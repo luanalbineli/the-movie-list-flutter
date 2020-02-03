@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:the_movie_list_flutter/bloc/splash/splash_state.dart';
+import 'package:the_movie_list_flutter/bloc/index.dart';
+import 'package:the_movie_list_flutter/routes/index.dart';
 
 class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return BlocListener(
-      child: SplashScreen(),
+    return BlocListener<AppBloc, AppState>(
+      child: Text('Loaded'),
       listener: (context, state) async {
         final NavigatorState navigator = Navigator.of(context);
-
-        if (state is SplashConfigurationLoaded) {
-        }
-
-        if (state is SplashConfigurationNotLoaded) {
+        if (state is AppStateSuccess) {
+          navigator.pushNamedAndRemoveUntil(AppRoutes.home.key, (_) => true);
         }
       }
     );

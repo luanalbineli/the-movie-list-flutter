@@ -1,1 +1,2 @@
-export 'package:the_movie_list_flutter/screens/splash/splash_screen.dart';
+export './splash/splash_screen.dart';
+export './home/index.dart';
