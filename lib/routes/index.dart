@@ -8,7 +8,7 @@ class AppRoutes {
   static MapEntry<String, WidgetBuilder> home;
 
   static Map<String, WidgetBuilder> getRoutes() {
-    home = MapEntry('/home', (context) => HomeScreen());
+    home = MapEntry('/home', (context) => MainScreen());
 
     Map<String, WidgetBuilder> routes = {};
     routes.addEntries([

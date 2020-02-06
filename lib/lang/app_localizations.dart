@@ -9,12 +9,12 @@ class AppLocalizations extends WidgetsLocalizations {
   @override
   TextDirection get textDirection => TextDirection.ltr;
 
-  // BEGIN: Onboarding
-  String get onboardingFirstPageSubtitle => 'A maneira mais rápida de receber seus clientes.';
-  String get onboardingFirstPageTitle => 'Seus recebimentos em um clique.';
-  String get onboardingSecondPageSubtitle => 'A maneira mais rápida de receber seus clientes.';
-  String get onboardingSecondPageTitle => 'Atraia mais clientes para o seu estabelecimento.';
-  // END: Onboarding
+  // BEGIN: Common
+  String get textHome => 'Home';
+  String get textSearch => 'Search';
+  String get textCinema => 'Cinema';
+  String get textLibrary => 'Library';
+  // END: Common
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<AppLocalizations> {

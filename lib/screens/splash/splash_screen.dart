@@ -11,7 +11,7 @@ class SplashScreen extends StatelessWidget {
       listener: (context, state) async {
         final NavigatorState navigator = Navigator.of(context);
         if (state is AppStateSuccess) {
-          navigator.pushNamedAndRemoveUntil(AppRoutes.home.key, (_) => true);
+          navigator.pushReplacementNamed(AppRoutes.home.key);
         }
       }
     );
