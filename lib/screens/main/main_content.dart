@@ -53,25 +53,6 @@ class MainContent extends StatelessWidget {
               title: Text(menuItem.key),
             ))
         .toList();
-    /* return <BottomNavigationBarItem>[
-      BottomNavigationBarItem(
-        backgroundColor: ColorSets.martinique,
-        icon: Icon(Icons.home),
-        title: Text(appLocalizations.textHome),
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.search),
-        title: Text(appLocalizations.textSearch),
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.play_arrow),
-        title: Text(appLocalizations.textCinema),
-      ),
-      BottomNavigationBarItem(
-        icon: Icon(Icons.video_library),
-        title: Text(appLocalizations.textLibrary),
-      )
-    ]; */
   }
 
   List<Widget> _getContentList() {
