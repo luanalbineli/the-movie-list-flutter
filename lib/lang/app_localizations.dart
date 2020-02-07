@@ -14,6 +14,9 @@ class AppLocalizations extends WidgetsLocalizations {
   String get textSearch => 'Search';
   String get textCinema => 'Cinema';
   String get textLibrary => 'Library';
+  String get textMostPopular => 'Most popular';
+  String get textMostRated => 'Most rated';
+  String get textSeeAll => 'See all';
   // END: Common
 }
 

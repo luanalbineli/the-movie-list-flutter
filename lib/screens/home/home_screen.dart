@@ -16,9 +16,109 @@ class HomeScreen extends StatelessWidget {
               style: TextStyle(color: Colors.white)),
         ),
         Expanded(
-          child: Container(color: ColorSets.blackPearl),
+          child: Container(
+            padding: Dimens.defaultScreenPadding,
+            color: ColorSets.blackPearl,
+            child: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  _homeTitle(
+                      context,
+                      appLocalizations,
+                      appLocalizations.textMostPopular,
+                      () => print('TAP popular')),
+                  SizedBox(
+                    height: Dimens.defaultVerticalSpacing,
+                  ),
+                  _homeList(),
+                  SizedBox(
+                    height: Dimens.defaultVerticalSpacing2x,
+                  ),
+                  _homeTitle(context, appLocalizations,
+                      appLocalizations.textMostRated, () => print('TAP rated')),
+                  SizedBox(
+                    height: Dimens.defaultVerticalSpacing,
+                  ),
+                  _homeList(),
+                ],
+              ),
+            ),
+          ),
         )
       ],
+    );
+  }
+
+  Widget _homeTitle(BuildContext context, AppLocalizations appLocalizations,
+      String title, GestureTapCallback onTap) {
+    final titleStyle =
+        Theme.of(context).textTheme.headline5.apply(color: Colors.white);
+
+    final seeAllStyle =
+        Theme.of(context).textTheme.bodyText1.apply(color: Colors.white);
+    return Row(
+      textBaseline: TextBaseline.alphabetic,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Text(title, style: titleStyle),
+        InkWell(
+          child: Row(
+            children: <Widget>[
+              Text(appLocalizations.textSeeAll, style: seeAllStyle),
+              Icon(
+                Icons.chevron_right,
+                color: Colors.white,
+                size: 24,
+              )
+            ],
+          ),
+          onTap: () => print('See alla'),
+        )
+      ],
+    );
+  }
+
+  Widget _homeList() {
+    return SizedBox(
+      height: 150,
+      child: ListView(
+        scrollDirection: Axis.horizontal,
+        children: <Widget>[
+          Container(
+            width: 100,
+            color: ColorSets.martinique,
+          ),
+          SizedBox(
+            width: Dimens.defaultHorizontalSpacing,
+          ),
+          Container(
+            width: 100,
+            color: ColorSets.martinique,
+          ),
+          SizedBox(
+            width: Dimens.defaultHorizontalSpacing,
+          ),
+          Container(
+            width: 100,
+            color: ColorSets.martinique,
+          ),
+          SizedBox(
+            width: Dimens.defaultHorizontalSpacing,
+          ),
+          Container(
+            width: 100,
+            color: ColorSets.martinique,
+          ),
+          SizedBox(
+            width: Dimens.defaultHorizontalSpacing,
+          ),
+          Container(
+            width: 100,
+            color: ColorSets.martinique,
+          ),
+        ],
+      ),
     );
   }
 }
