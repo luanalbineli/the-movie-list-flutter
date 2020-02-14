@@ -12,22 +12,14 @@ class RepositoryExecutor {
 
   RepositoryExecutor({@required this.context}) : assert(context != null);
 
-  Future<Map<String, dynamic>> getAsJsonObject(String path,
-      {bool authenticated: true}) async {
+  Future<Map<String, dynamic>> getAsJsonObject(String path, { Map<String, dynamic> queryParams }) async {
     Map<String, dynamic> jsonObject =
-        await _getAsJson(path, authenticated: authenticated);
+        await _getAsJson(path, queryParams: queryParams);
     return jsonObject;
   }
 
-  /* Future<List<Map<String, dynamic>>> getAsJsonArray(String path,
-      {bool authenticated: true}) async {
-    List<Map<String, dynamic>> jsonArrayObject =
-        await _getAsJson(path, authenticated: authenticated);
-    return jsonArrayObject;
-  } */
-
-  Future<dynamic> _getAsJson(String path, {bool authenticated: true}) async {
-    var result = await _executeRequest('get', path);
+  Future<dynamic> _getAsJson(String path, { Map<String, dynamic> queryParams }) async {
+    var result = await _executeRequest('get', path, queryParams: queryParams);
     String stringBody = await result.stream.bytesToString();
 
     return jsonDecode(stringBody);
@@ -38,8 +30,8 @@ class RepositoryExecutor {
       _executeRequest('post', path, bodyFields: bodyFields);
 
   Future<http.StreamedResponse> _executeRequest(String method, String path,
-      {Map<String, String> bodyFields}) async {
-    Uri uri = getFinalUri(path);
+      {Map<String, String> bodyFields, Map<String, dynamic> queryParams}) async {
+    Uri uri = getFinalUri(path, queryParams);
     print('Final uri: $uri');
     var request = http.Request(method, uri);
 
@@ -56,12 +48,13 @@ class RepositoryExecutor {
     return response;
   }
 
-  Uri getFinalUri(String path) {
+  Uri getFinalUri(String path, Map<String, dynamic> queryParams) {
     Uri uri = Uri.parse(baseUrl + path);
     Locale locale = Localizations.localeOf(context);
     Map<String, dynamic> queryParameters = {
       'api_key': apiToken,
-      'region': locale.countryCode
+      'language': locale.countryCode,
+      'page': '1'
     };
     return uri.replace(queryParameters: queryParameters);
   }
