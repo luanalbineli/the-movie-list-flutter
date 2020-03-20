@@ -1,10 +1,11 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:the_movie_list_flutter/bloc/index.dart';
 import 'package:the_movie_list_flutter/repository/index.dart';
 
 class AppBloc extends Bloc<AppEvent, AppState> {
   final CommonRepository commonRepository;
-  AppBloc(this.commonRepository);
+  AppBloc({ @required this.commonRepository });
 
   @override
   AppState get initialState => AppStateInitial();

@@ -27,7 +27,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           await movieRepository.getTopRatedMovieList();
       List<MovieResponseModel> popularMovieList =
           await movieRepository.getPopularMovieList();
-          
+
       yield HomeStateSuccess(
           topRatedMovieList: topRatedMovieList,
           popularMovieList: popularMovieList);

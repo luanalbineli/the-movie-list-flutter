@@ -8,9 +8,7 @@ class RepositoryExecutor {
   static const baseUrl = 'https://api.themoviedb.org/3/';
   static const apiToken = 'a28afa7bae56cdcac60edec189769acd';
 
-  final BuildContext context;
-
-  RepositoryExecutor({@required this.context}) : assert(context != null);
+  RepositoryExecutor();
 
   Future<Map<String, dynamic>> getAsJsonObject(String path, { Map<String, dynamic> queryParams }) async {
     Map<String, dynamic> jsonObject =
@@ -50,10 +48,10 @@ class RepositoryExecutor {
 
   Uri getFinalUri(String path, Map<String, dynamic> queryParams) {
     Uri uri = Uri.parse(baseUrl + path);
-    Locale locale = Localizations.localeOf(context);
+    // Locale locale = Localizations.localeOf(context);
     Map<String, dynamic> queryParameters = {
       'api_key': apiToken,
-      'language': locale.countryCode,
+      'language': 'pt-BR',
       'page': '1'
     };
     return uri.replace(queryParameters: queryParameters);

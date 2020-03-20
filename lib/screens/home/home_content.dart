@@ -35,7 +35,7 @@ class HomeContent extends StatelessWidget {
                       SizedBox(
                         height: Dimens.defaultVerticalSpacing,
                       ),
-                      _homeList(),
+                      _homeList(state),
                       SizedBox(
                         height: Dimens.defaultVerticalSpacing2x,
                       ),
@@ -47,7 +47,7 @@ class HomeContent extends StatelessWidget {
                       SizedBox(
                         height: Dimens.defaultVerticalSpacing,
                       ),
-                      _homeList(),
+                      _homeList(state),
                     ],
                   ),
                 ),
@@ -89,7 +89,9 @@ class HomeContent extends StatelessWidget {
     );
   }
 
-  Widget _homeList() {
+  Widget _homeList(HomeState state) {
+    if (state is HomeStateSuccess) {
+    }
     return SizedBox(
       height: 150,
       child: ListView(

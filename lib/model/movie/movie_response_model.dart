@@ -1,5 +1,3 @@
-import 'package:the_movie_list_flutter/extensions/index.dart';
-
 class MovieResponseModel {
   final int id;
   final String posterPath;
@@ -13,15 +11,15 @@ class MovieResponseModel {
   MovieResponseModel(this.id, this.posterPath, this.overview, this.title,
       this.voteAverage, this.releaseDate, this.backdropPath, this.genreIdList);
 
-
-  MovieResponseModel.fromJson(Map<String, dynamic> json): 
-    id = json['id'],
-    posterPath = json['poster_path'],
-    overview = json['overview'],
-    title = json['title'],
-    voteAverage = json['vote_average'],
-    releaseDate = json['release_date'] == null ? null : json['release_date'].parseDateTime(),
-    backdropPath = json['backdrop_path'],
-    genreIdList = json['genre_ids']
-    ;
+  MovieResponseModel.fromJson(Map<String, dynamic> json)
+      : id = json['id'],
+        posterPath = json['poster_path'],
+        overview = json['overview'],
+        title = json['title'],
+        voteAverage = json['vote_average'].toDouble(),
+        releaseDate = json['release_date'] == null
+            ? null
+            : DateTime.parse(json['release_date']),
+        backdropPath = json['backdrop_path'],
+        genreIdList = json['genre_ids'].cast<int>();
 }
