@@ -23,22 +23,25 @@ class HomeContent extends StatelessWidget {
             ),
             Expanded(
               child: Container(
-                padding: Dimens.defaultScreenPadding,
+                padding: EdgeInsets.symmetric(horizontal: Dimens.defaultSpacing),
                 color: ColorSets.blackPearl,
                 child: SingleChildScrollView(
                   child: Column(
                     children: <Widget>[
+                      SizedBox(
+                        height: Dimens.defaultSpacing,
+                      ),
                       _homeTitle(
                           context,
                           appLocalizations,
                           appLocalizations.textMostPopular,
                           () => print('TAP popular')),
                       SizedBox(
-                        height: Dimens.defaultVerticalSpacing,
+                        height: Dimens.defaultSpacing,
                       ),
                       _homeList(state),
                       SizedBox(
-                        height: Dimens.defaultVerticalSpacing2x,
+                        height: Dimens.defaultSpacing2x,
                       ),
                       _homeTitle(
                           context,
@@ -46,9 +49,12 @@ class HomeContent extends StatelessWidget {
                           appLocalizations.textMostRated,
                           () => print('TAP rated')),
                       SizedBox(
-                        height: Dimens.defaultVerticalSpacing,
+                        height: Dimens.defaultSpacing,
                       ),
                       _homeList(state),
+                      SizedBox(
+                        height: Dimens.defaultSpacing,
+                      )
                     ],
                   ),
                 ),
@@ -104,28 +110,28 @@ class HomeContent extends StatelessWidget {
             color: ColorSets.martinique,
           ),
           SizedBox(
-            width: Dimens.defaultHorizontalSpacing,
+            width: Dimens.defaultSpacing,
           ),
           Container(
             width: 100,
             color: ColorSets.martinique,
           ),
           SizedBox(
-            width: Dimens.defaultHorizontalSpacing,
+            width: Dimens.defaultSpacing,
           ),
           Container(
             width: 100,
             color: ColorSets.martinique,
           ),
           SizedBox(
-            width: Dimens.defaultHorizontalSpacing,
+            width: Dimens.defaultSpacing,
           ),
           Container(
             width: 100,
             color: ColorSets.martinique,
           ),
           SizedBox(
-            width: Dimens.defaultHorizontalSpacing,
+            width: Dimens.defaultSpacing,
           ),
           Container(
             width: 100,
