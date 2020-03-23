@@ -18,4 +18,7 @@ class Dimens {
 	static const double defaultVerticalSpacing4x = defaultVerticalSpacing * 4;
 
   static const EdgeInsets defaultScreenPadding = const EdgeInsets.all(defaultHorizontalSpacing);
+
+  static const double horizontalMovieListPosterWidth = 100;
+	static const double horizontalMovieListPosterHeight = 150;
 }

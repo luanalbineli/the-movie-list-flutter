@@ -11,6 +11,8 @@ class ConfigurationResponseModel {
   });
 
   factory ConfigurationResponseModel.fromJson(Map<String, dynamic> jsonResponse) {
-    return ConfigurationResponseModel(secureBaseUrl: jsonResponse['secure_base_url']);
+    return ConfigurationResponseModel(secureBaseUrl: jsonResponse['images']['secure_base_url']);
   }
+
+  String getImagePath(String imageKey) => secureBaseUrl + 'w185' + imageKey;
 }

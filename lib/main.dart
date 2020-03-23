@@ -28,9 +28,11 @@ class _App extends State<App> {
     final getIt = GetIt.I;
 
     final repositoryExecutor = RepositoryExecutor();
+    final dbRepository = DbRepository();
     getIt.registerSingleton(repositoryExecutor);
     getIt.registerSingleton(CommonRepository(repositoryExecutor));
-    getIt.registerSingleton(MovieRepository(repositoryExecutor));
+    getIt.registerSingleton(MovieRepository(
+        repositoryExecutor: repositoryExecutor, dbRepository: dbRepository));
   }
 
   @override
@@ -51,7 +53,8 @@ class _App extends State<App> {
         routes: appRoutes,
         home: BlocProvider<AppBloc>(
             create: (context) {
-              return AppBloc(commonRepository: commonRepository)..add(AppEventStart());
+              return AppBloc(commonRepository: commonRepository)
+                ..add(AppEventStart());
             },
             child: SplashScreen()));
   }

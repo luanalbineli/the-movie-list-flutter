@@ -1,6 +1,5 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
-import 'package:the_movie_list_flutter/model/index.dart';
 import 'package:the_movie_list_flutter/repository/index.dart';
 import 'package:the_movie_list_flutter/screens/index.dart';
 
@@ -23,10 +22,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     yield HomeStateLoading();
 
     try {
-      List<MovieResponseModel> topRatedMovieList =
-          await movieRepository.getTopRatedMovieList();
-      List<MovieResponseModel> popularMovieList =
-          await movieRepository.getPopularMovieList();
+      final topRatedMovieList = await movieRepository.getTopRatedMovieList();
+      final popularMovieList = await movieRepository.getPopularMovieList();
 
       yield HomeStateSuccess(
           topRatedMovieList: topRatedMovieList,

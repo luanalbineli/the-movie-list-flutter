@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:the_movie_list_flutter/lang/index.dart';
 import 'package:the_movie_list_flutter/screens/home/index.dart';
+import 'package:the_movie_list_flutter/screens/home/list/horizontal_movie_list.dart.dart';
 import 'package:the_movie_list_flutter/theme/index.dart';
 
 class HomeContent extends StatelessWidget {
@@ -91,6 +92,7 @@ class HomeContent extends StatelessWidget {
 
   Widget _homeList(HomeState state) {
     if (state is HomeStateSuccess) {
+      return HorizontalMovieList(movieListModel: state.popularMovieList);
     }
     return SizedBox(
       height: 150,

@@ -7,12 +7,10 @@ abstract class BaseRepository {
   BaseRepository(this.repositoryExecutor) : assert(repositoryExecutor != null);
 
   @protected
-  List<T> parseListFromJsonResponse<T>(Map<String, dynamic> jsonResponse, String key, T parser(dynamic jsonItem)) {
-     List<dynamic> jsonList = jsonResponse[key];
-    return jsonList
-        .map(parser)
-        .toList();
-
+  List<T> parseListFromJsonResponse<T>(Map<String, dynamic> jsonResponse,
+      String key, T parser(dynamic jsonItem)) {
+    List<dynamic> jsonList = jsonResponse[key];
+    return jsonList.map(parser).toList();
   }
 
   static const initialPageIndex = 1;

@@ -20,8 +20,8 @@ class HomeStateError extends HomeState {
 }
 
 class HomeStateSuccess extends HomeState {
-  final List<MovieResponseModel> topRatedMovieList;
-  final List<MovieResponseModel> popularMovieList;
+  final List<MovieModel> topRatedMovieList;
+  final List<MovieModel> popularMovieList;
 
   HomeStateSuccess(
       {@required this.topRatedMovieList, @required this.popularMovieList});
